@@ -56,7 +56,7 @@ const Contact = () => {
                 <div className="absolute top-0 right-0 w-64 md:w-96 h-64 md:h-96 bg-orange-600/5 blur-[80px] md:blur-[120px] rounded-full"></div>
                 <div className="max-w-4xl mx-auto relative z-10">
                     <p className="text-orange-600 font-bold uppercase tracking-widest text-[10px] mb-3 md:mb-4">Get in Touch</p>
-                    <h1 className="text-4xl md:text-7xl font-black mb-4 md:mb-6 tracking-tighter uppercase leading-[1.1]">Contact <span className="text-orange-600">Us</span></h1>
+                    <h1 className="text-4xl md:text-6xl lg:text-[68px] font-black mb-4 md:mb-6 tracking-tighter uppercase leading-[1.1]">Contact <span className="text-orange-600">Us</span></h1>
                     <p className="text-slate-600 text-base md:text-xl max-w-2xl mx-auto leading-relaxed font-medium">Have a question, feedback, or need help? Our professional support team is here to assist you.</p>
                 </div>
             </section>

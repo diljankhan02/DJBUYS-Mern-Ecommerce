@@ -67,10 +67,10 @@ const Home = () => {
                 ))}
 
                 
-                <div className="max-w-7xl mx-auto w-full px-6 relative z-10 grid grid-cols-1 md:grid-cols-2">
+                <div className="max-w-7xl mx-auto w-full px-8 md:px-12 relative z-10 grid grid-cols-1 md:grid-cols-2">
                     <div 
                         key={currentSlide}
-                        className="flex flex-col items-start animate-in fade-in slide-in-from-bottom-8 duration-1000 ease-out py-16 md:py-20"
+                        className="flex flex-col items-start animate-in fade-in slide-in-from-bottom-8 duration-1000 ease-out py-16 md:py-28"
                     >
                         
                         <div className="inline-flex items-center gap-2 md:gap-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4 md:px-5 py-2 text-white text-[9px] md:text-[10px] font-black uppercase tracking-[0.3em] mb-6 md:mb-8 shadow-2xl">
@@ -79,7 +79,7 @@ const Home = () => {
                         </div>
 
                       
-                        <h1 className="text-3xl sm:text-5xl md:text-7xl lg:text-[80px] font-black leading-[1.1] md:leading-[0.9] mb-6 md:mb-8 text-white tracking-tighter max-w-2xl drop-shadow-2xl uppercase">
+                        <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-[70px] font-black leading-[1.1] md:leading-[1] mb-6 md:mb-10 text-white tracking-tighter max-w-3xl drop-shadow-2xl uppercase">
                             {slides[currentSlide].title.split(slides[currentSlide].highlight).map((part, i, arr) => (
                                 <span key={i}>
                                     {part}
@@ -94,7 +94,7 @@ const Home = () => {
                         </h1>
 
                        
-                        <p className="text-white/70 text-sm md:text-xl font-medium leading-relaxed mb-8 md:mb-12 max-w-lg drop-shadow-lg">
+                        <p className="text-white/70 text-sm md:text-lg font-medium leading-relaxed mb-10 md:mb-14 max-w-lg drop-shadow-lg">
                             {slides[currentSlide].desc}
                         </p>
 
