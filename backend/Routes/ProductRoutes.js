@@ -4,7 +4,8 @@ import { getProducts, updateProduct, deleteProduct, getProductById, addProduct }
 import { adminMiddleware } from "../Middleware/authMiddleware.js";
 
 const router = express.Router();
-const upload = multer({ dest: "uploads/" });
+const storage = multer.memoryStorage();
+const upload = multer({ storage });
 
 // GET /api/products — public, any user can view products
 router.get("/", getProducts);

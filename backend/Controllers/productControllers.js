@@ -19,10 +19,16 @@ export const addProduct = async (req, res) => {
 
         // Upload image to Cloudinary if file is provided
         if (req.file) {
-            const result = await cloudinary.uploader.upload(req.file.path, {
-                folder: "ecommerce_products",
+            imageUrl = await new Promise((resolve, reject) => {
+                const stream = cloudinary.uploader.upload_stream(
+                    { folder: "ecommerce_products" },
+                    (error, result) => {
+                        if (error) reject(error);
+                        else resolve(result.secure_url);
+                    }
+                );
+                stream.end(req.file.buffer);
             });
-            imageUrl = result.secure_url;
         }
 
         const newProduct = await Product.create({
@@ -59,10 +65,16 @@ export const updateProduct = async (req, res) => {
 
         // If new image uploaded, upload to Cloudinary
         if (req.file) {
-            const result = await cloudinary.uploader.upload(req.file.path, {
-                folder: "ecommerce_products",
+            updates.image = await new Promise((resolve, reject) => {
+                const stream = cloudinary.uploader.upload_stream(
+                    { folder: "ecommerce_products" },
+                    (error, result) => {
+                        if (error) reject(error);
+                        else resolve(result.secure_url);
+                    }
+                );
+                stream.end(req.file.buffer);
             });
-            updates.image = result.secure_url;
         }
 
         const updatedProduct = await Product.findByIdAndUpdate(id, updates, { new: true });
