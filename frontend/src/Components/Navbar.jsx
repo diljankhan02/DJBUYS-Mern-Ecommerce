@@ -79,6 +79,7 @@ const Navbar = () => {
                 </button>
 
                 <div className="hidden md:flex items-center gap-8">
+                    <Link to="/" className={navLinkClass("/")}>Home {activeUnderline("/")}</Link>
                     <Link to="/about" className={navLinkClass("/about")}>About {activeUnderline("/about")}</Link>
                     <div className="h-5 w-px bg-slate-200" />
                     <div className="flex items-center gap-3">
@@ -92,6 +93,7 @@ const Navbar = () => {
                 {/* Mobile Menu Overlay */}
                 {isMenuOpen && (
                     <div className="absolute top-full left-0 w-full bg-white border-b border-slate-100 flex flex-col p-6 gap-6 md:hidden shadow-xl animate-in fade-in slide-in-from-top-4 duration-300">
+                        <Link to="/" className={navLinkClass("/")} onClick={() => setIsMenuOpen(false)}>Home</Link>
                         <Link to="/about" className={navLinkClass("/about")} onClick={() => setIsMenuOpen(false)}>About</Link>
                         <div className="flex flex-col gap-4 pt-4 border-t border-slate-100">
                             <Link to="/signup" className="w-full py-4 text-center font-black text-xs uppercase tracking-widest text-slate-600 bg-slate-50 rounded-xl" onClick={() => setIsMenuOpen(false)}>Sign Up</Link>
