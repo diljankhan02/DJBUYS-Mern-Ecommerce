@@ -107,7 +107,7 @@ const Products = () => {
                         className="animate-in fade-in slide-in-from-bottom-8 duration-1000 ease-out"
                     >
                         <p className="text-orange-600 font-bold uppercase tracking-[0.4em] text-[8px] md:text-[10px] mb-3 md:mb-4 shadow-black drop-shadow-md">Browse Products</p>
-                        <h1 className="text-3xl md:text-6xl lg:text-[68px] font-black mb-4 md:mb-6 tracking-tighter text-white uppercase drop-shadow-2xl">
+                        <h1 className="text-3xl md:text-5xl lg:text-[60px] font-black mb-4 md:mb-6 tracking-tighter text-white uppercase drop-shadow-2xl leading-tight">
                             Our <span className="text-orange-600 italic">Products</span>
                         </h1>
                         <p className="text-white/80 mb-8 md:mb-12 text-sm md:text-lg font-medium max-w-2xl mx-auto leading-relaxed drop-shadow-lg px-4">
