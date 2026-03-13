@@ -12,7 +12,7 @@ const Inbox = () => {
     const fetchMyMessages = async () => {
         const token = localStorage.getItem("token");
         try {
-            const res = await axios.get("http://localhost:5000/api/messages/my-messages", {
+            const res = await axios.get("https://djbuys-backend.vercel.app/api/messages/my-messages", {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setMessages(res.data);
@@ -34,7 +34,7 @@ const Inbox = () => {
         setSending(true);
         const token = localStorage.getItem("token");
         try {
-            await axios.post(`http://localhost:5000/api/messages/${threadId}/chat`, 
+            await axios.post(`https://djbuys-backend.vercel.app/api/messages/${threadId}/chat`, 
                 { text: text.trim() },
                 { headers: { Authorization: `Bearer ${token}` } }
             );

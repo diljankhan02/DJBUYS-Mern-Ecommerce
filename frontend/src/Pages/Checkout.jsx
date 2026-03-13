@@ -111,7 +111,7 @@ const Checkout = () => {
                 })),
                 totalPrice,
             };
-            const res = await axios.post("http://localhost:5000/api/orders", orderData);
+            const res = await axios.post("https://djbuys-backend.vercel.app/api/orders", orderData);
             clearCart();
             setPlacedOrderData({ ...orderData, orderId: res.data.order?._id });
             setOrderPlaced(true);

@@ -18,7 +18,7 @@ const AdminLogin = () => {
         setLoading(true);
         try {
           
-            const res = await axios.post("http://localhost:5000/api/auth/admin/signin", formData);
+            const res = await axios.post("https://djbuys-backend.vercel.app/api/auth/admin/signin", formData);
             const { token, user } = res.data;
 
            

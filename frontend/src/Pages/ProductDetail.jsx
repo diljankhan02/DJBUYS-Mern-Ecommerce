@@ -27,8 +27,8 @@ const ProductDetail = () => {
             try {
                 // Fetch the product and all products in parallel
                 const [productRes, allRes] = await Promise.all([
-                    axios.get(`http://localhost:5000/api/products/${id}`),
-                    axios.get("http://localhost:5000/api/products"),
+                    axios.get(`https://djbuys-backend.vercel.app/api/products/${id}`),
+                    axios.get("https://djbuys-backend.vercel.app/api/products"),
                 ]);
                 const fetched = productRes.data;
                 setProduct(fetched);

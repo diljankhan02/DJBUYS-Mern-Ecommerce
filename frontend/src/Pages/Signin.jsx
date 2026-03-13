@@ -26,7 +26,7 @@ const Signin = () => {
 
         setLoading(true);
         try {
-            const res = await axios.post("http://localhost:5000/api/auth/signin", {
+            const res = await axios.post("https://djbuys-backend.vercel.app/api/auth/signin", {
                 email: email.trim(),
                 password: password.trim()
             });
@@ -139,7 +139,7 @@ const Signin = () => {
 
                     {/* Google Login Button */}
                     <button
-                        onClick={() => window.location.href = "http://localhost:5000/api/auth/google"}
+                        onClick={() => window.location.href = "https://djbuys-backend.vercel.app/api/auth/google"}
                         className="w-full py-4 bg-white text-slate-900 rounded-2xl flex items-center justify-center gap-3 hover:bg-orange-600 hover:text-white transition-all font-black text-xs uppercase tracking-widest shadow-xl mb-8 cursor-pointer active:scale-95"
                     >
                         <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" className="w-5 h-5" />

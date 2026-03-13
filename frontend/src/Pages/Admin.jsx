@@ -25,7 +25,7 @@ const Admin = () => {
 
     const fetchProducts = async () => {
         try {
-            const res = await axios.get("http://localhost:5000/api/products");
+            const res = await axios.get("https://djbuys-backend.vercel.app/api/products");
             setProducts(res.data);
         } catch (err) {
             console.error("Failed to fetch products:", err);
@@ -37,7 +37,7 @@ const Admin = () => {
     const fetchMessages = async () => {
         try {
             const token = localStorage.getItem("token");
-            const res = await axios.get("http://localhost:5000/api/messages", {
+            const res = await axios.get("https://djbuys-backend.vercel.app/api/messages", {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setMessages(res.data);
@@ -69,11 +69,11 @@ const Admin = () => {
 
         try {
             if (editProduct) {
-                await axios.put(`http://localhost:5000/api/products/${editProduct._id}`, data, { headers: authHeaders });
+                await axios.put(`https://djbuys-backend.vercel.app/api/products/${editProduct._id}`, data, { headers: authHeaders });
                 setSuccess("✅ Success: Product updated.");
                 setEditProduct(null);
             } else {
-                await axios.post("http://localhost:5000/api/products", data, { headers: authHeaders });
+                await axios.post("https://djbuys-backend.vercel.app/api/products", data, { headers: authHeaders });
                 setSuccess("✅ Success: Product added to store.");
             }
             setFormData({ title: "", description: "", price: "", category: "", subCategory: "", discount: "" });
@@ -98,7 +98,7 @@ const Admin = () => {
 
         const token = localStorage.getItem("token");
         try {
-            await axios.delete(`http://localhost:5000/api/products/${product._id}`, {
+            await axios.delete(`https://djbuys-backend.vercel.app/api/products/${product._id}`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
 
@@ -118,7 +118,7 @@ const Admin = () => {
         if (!window.confirm("Delete this message?")) return;
         const token = localStorage.getItem("token");
         try {
-            await axios.delete(`http://localhost:5000/api/messages/${id}`, {
+            await axios.delete(`https://djbuys-backend.vercel.app/api/messages/${id}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setMessages(messages.filter(m => m._id !== id));
@@ -135,7 +135,7 @@ const Admin = () => {
 
         const token = localStorage.getItem("token");
         try {
-            const res = await axios.post(`http://localhost:5000/api/messages/${messageId}/chat`, 
+            const res = await axios.post(`https://djbuys-backend.vercel.app/api/messages/${messageId}/chat`, 
                 { text: text.trim() },
                 { headers: { Authorization: `Bearer ${token}` } }
             );
