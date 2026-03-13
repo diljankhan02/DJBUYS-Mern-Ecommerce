@@ -74,13 +74,13 @@ const AdminLogin = () => {
                     </div>
 
                     {/* Card */}
-                    <div className="bg-white/5 border border-white/10 rounded-[2.5rem] p-10 shadow-xl relative overflow-hidden">
+                    <div className="bg-white/5 border border-white/10 rounded-2xl md:rounded-[2.5rem] p-6 md:p-10 shadow-xl relative overflow-hidden">
                         <div className="flex items-center gap-3 mb-8 relative z-10">
-                            <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center border border-white/10">
-                                <span className="text-2xl text-white">🔐</span>
+                            <div className="w-10 h-10 md:w-12 md:h-12 bg-white/5 rounded-xl md:rounded-2xl flex items-center justify-center border border-white/10">
+                                <span className="text-xl md:text-2xl text-white">🔐</span>
                             </div>
                             <div>
-                                <h2 className="text-xl font-black text-white uppercase tracking-tight">Admin Sign In</h2>
+                                <h2 className="text-lg md:text-xl font-black text-white uppercase tracking-tight">Admin Sign In</h2>
                             </div>
                         </div>
 

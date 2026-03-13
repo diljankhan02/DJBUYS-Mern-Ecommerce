@@ -79,7 +79,7 @@ const Products = () => {
             <Navbar />
 
          
-            <section className="relative h-[600px] flex items-center justify-center overflow-hidden bg-white">
+            <section className="relative h-[400px] md:h-[600px] flex items-center justify-center overflow-hidden bg-white">
                 
                 
                 {slides.map((slide, index) => (
@@ -106,42 +106,42 @@ const Products = () => {
                         key={currentSlide}
                         className="animate-in fade-in slide-in-from-bottom-8 duration-1000 ease-out"
                     >
-                        <p className="text-orange-600 font-bold uppercase tracking-[0.4em] text-[10px] mb-4 shadow-black drop-shadow-md">Browse Products</p>
-                        <h1 className="text-5xl md:text-7xl font-black mb-6 tracking-tighter text-white uppercase drop-shadow-2xl">
+                        <p className="text-orange-600 font-bold uppercase tracking-[0.4em] text-[8px] md:text-[10px] mb-3 md:mb-4 shadow-black drop-shadow-md">Browse Products</p>
+                        <h1 className="text-3xl md:text-7xl font-black mb-4 md:mb-6 tracking-tighter text-white uppercase drop-shadow-2xl">
                             Our <span className="text-orange-600 italic">Products</span>
                         </h1>
-                        <p className="text-white/80 mb-12 text-lg font-medium max-w-2xl mx-auto leading-relaxed drop-shadow-lg">
+                        <p className="text-white/80 mb-8 md:mb-12 text-sm md:text-lg font-medium max-w-2xl mx-auto leading-relaxed drop-shadow-lg px-4">
                             Discover a wide range of quality products curated for your daily needs.
                         </p>
                     </div>
 
                     
-                    <div className="relative max-w-2xl mx-auto group">
-                        <div className="absolute inset-y-0 left-0 pl-8 flex items-center pointer-events-none z-10">
-                            <svg className="w-6 h-6 text-slate-400 group-focus-within:text-orange-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <div className="relative max-w-2xl mx-auto group px-4 sm:px-0">
+                        <div className="absolute inset-y-0 left-4 sm:left-0 pl-4 sm:pl-8 flex items-center pointer-events-none z-10">
+                            <svg className="w-5 h-5 md:w-6 md:h-6 text-slate-400 group-focus-within:text-orange-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                             </svg>
                         </div>
                         <input
                             type="text"
-                            placeholder="Search for products..."
+                            placeholder="Search products..."
                             value={search}
                             onChange={(e) => setSearch(e.target.value)}
-                            className="w-full pl-16 pr-8 py-6 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 text-white placeholder-white/40 focus:outline-none text-lg font-semibold focus:bg-white focus:text-slate-900 focus:placeholder-slate-400 transition-all shadow-2xl focus:shadow-orange-600/20"
+                            className="w-full pl-12 sm:pl-16 pr-6 sm:pr-8 py-4 sm:py-6 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 text-white placeholder-white/40 focus:outline-none text-base sm:text-lg font-semibold focus:bg-white focus:text-slate-900 focus:placeholder-slate-400 transition-all shadow-2xl focus:shadow-orange-600/20"
                         />
                     </div>
                 </div>
  
                 {/* Navigation Dots */}
-                <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex gap-3">
+                <div className="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 z-20 flex gap-2 md:gap-3">
                     {slides.map((_, index) => (
                         <button 
                             key={index}
                             onClick={() => setCurrentSlide(index)}
-                            className={`transition-all duration-700 rounded-full h-1.5 ${
+                            className={`transition-all duration-700 rounded-full h-1 md:h-1.5 ${
                                 index === currentSlide 
-                                    ? "w-12 bg-orange-600 shadow-[0_0_15px_rgba(249,115,22,0.8)]" 
-                                    : "w-6 bg-white/20 hover:bg-white/40"
+                                    ? "w-8 md:w-12 bg-orange-600 shadow-[0_0_15px_rgba(249,115,22,0.8)]" 
+                                    : "w-4 md:w-6 bg-white/20 hover:bg-white/40"
                             }`}
                             aria-label={`Go to slide ${index + 1}`}
                         />
@@ -153,9 +153,38 @@ const Products = () => {
                 
                 {/* 🗂️ Boutique Sidebar */}
                 <aside className="w-full md:w-72 flex-shrink-0">
-                    <div className="bg-white rounded-[2rem] border border-slate-100 p-8 sticky top-28 shadow-sm">
-                        <h2 className="font-black text-xs uppercase tracking-[0.3em] text-slate-400 mb-8">Categories</h2>
-                        <ul className="space-y-2">
+                    <div className="bg-white rounded-[1.5rem] md:rounded-[2rem] border border-slate-100 p-4 md:p-8 md:sticky md:top-28 shadow-sm overflow-hidden">
+                        <h2 className="hidden md:block font-black text-xs uppercase tracking-[0.3em] text-slate-400 mb-8">Categories</h2>
+                        
+                        {/* Mobile Categories (Horizontal Scroll) */}
+                        <div className="flex md:hidden overflow-x-auto pb-4 gap-3 no-scrollbar scroll-smooth">
+                            <button 
+                                onClick={() => handleCategoryClick("All Products")}
+                                className={`whitespace-nowrap px-4 py-2 rounded-full font-black text-[10px] uppercase tracking-widest transition-all ${
+                                    selectedCategory === "All Products" 
+                                    ? "bg-orange-600 text-white shadow-lg shadow-orange-600/20" 
+                                    : "bg-slate-50 text-slate-400"
+                                }`}
+                            >
+                                All Products
+                            </button>
+                            {Object.keys(categoriesInfo).map(cat => (
+                                <button 
+                                    key={cat}
+                                    onClick={() => handleCategoryClick(cat)}
+                                    className={`whitespace-nowrap px-4 py-2 rounded-full font-black text-[10px] uppercase tracking-widest transition-all ${
+                                        selectedCategory === cat 
+                                        ? "bg-orange-600 text-white shadow-lg shadow-orange-600/20" 
+                                        : "bg-slate-50 text-slate-400"
+                                    }`}
+                                >
+                                    {cat}
+                                </button>
+                            ))}
+                        </div>
+
+                        {/* Desktop Categories (Vertical List) */}
+                        <ul className="hidden md:block space-y-2">
                                             <button 
                                                 onClick={() => handleCategoryClick("All Products")}
                                                 className={`w-full text-left px-5 py-4 rounded-xl transition-all duration-300 font-black text-xs uppercase tracking-widest flex items-center justify-between ${
@@ -174,7 +203,7 @@ const Products = () => {
                                         className={`w-full text-left px-5 py-4 rounded-xl transition-all duration-300 font-black text-xs uppercase tracking-widest flex items-center justify-between group ${
                                             selectedCategory === cat 
                                             ? "bg-orange-600 text-white shadow-[0_0_30px_rgba(249,115,22,0.4)]" 
-                                            : "text-slate-400 hover:text-white hover:bg-white/5"
+                                            : "text-slate-400 hover:text-slate-900 hover:bg-slate-50"
                                         }`}
                                     >
                                         <span>{cat}</span>
@@ -190,7 +219,7 @@ const Products = () => {
                                     
                                     {/* Subcategories */}
                                     <div className={`overflow-hidden transition-all duration-500 ${selectedCategory === cat && categoriesInfo[cat].length > 0 ? 'max-h-96 opacity-100 mt-4 mb-4' : 'max-h-0 opacity-0'}`}>
-                                        <div className="pl-6 space-y-3 flex flex-col border-l-2 border-white/5 ml-4">
+                                        <div className="pl-6 space-y-3 flex flex-col border-l-2 border-slate-100 ml-4">
                                             {categoriesInfo[cat].map(sub => (
                                                 <button 
                                                     key={sub}
@@ -209,6 +238,25 @@ const Products = () => {
                                 </li>
                             ))}
                         </ul>
+                        
+                        {/* Mobile Subcategories (Horizontal Scroll) */}
+                        {selectedCategory !== "All Products" && categoriesInfo[selectedCategory]?.length > 0 && (
+                            <div className="flex md:hidden overflow-x-auto pb-2 gap-2 no-scrollbar border-t border-slate-50 pt-4 mt-2">
+                                {categoriesInfo[selectedCategory].map(sub => (
+                                    <button 
+                                        key={sub}
+                                        onClick={() => setSelectedSubCategory(sub)}
+                                        className={`whitespace-nowrap px-3 py-1.5 rounded-lg font-bold text-[9px] uppercase tracking-wider transition-all ${
+                                            selectedSubCategory === sub 
+                                            ? "bg-orange-100 text-orange-600 border border-orange-200" 
+                                            : "bg-white text-slate-400 border border-slate-100"
+                                        }`}
+                                    >
+                                        {sub}
+                                    </button>
+                                ))}
+                            </div>
+                        )}
                     </div>
                 </aside>
 

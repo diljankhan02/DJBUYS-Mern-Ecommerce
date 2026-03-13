@@ -162,45 +162,46 @@ const Admin = () => {
             <Navbar />
 
           
-            <div className="bg-[#020617] border-b border-white/5 pt-32 pb-16 px-6 relative overflow-hidden">
+            {/* Header Area */}
+            <div className="bg-[#020617] border-b border-white/5 pt-24 md:pt-32 pb-10 md:pb-16 px-6 relative overflow-hidden">
                
                 <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-orange-600/5 rounded-full blur-[100px] -mr-48 -mt-48"></div>
                 
-                <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-8 relative z-10">
-                    <div>
-                        <p className="text-orange-600 font-bold uppercase tracking-[0.4em] text-[10px] mb-4">Store Management</p>
-                        <h1 className="text-5xl md:text-6xl font-black tracking-tighter uppercase italic">
+                <div className="max-w-7xl mx-auto flex flex-col lg:flex-row lg:items-center justify-between gap-8 relative z-10">
+                    <div className="text-center md:text-left">
+                        <p className="text-orange-600 font-bold uppercase tracking-[0.4em] text-[10px] mb-3 md:mb-4">Store Management</p>
+                        <h1 className="text-4xl md:text-6xl font-black tracking-tighter uppercase italic">
                             Admin <span className="text-slate-500 not-italic">Dashboard</span>
                         </h1>
-                        <p className="text-slate-500 font-bold uppercase tracking-widest text-xs mt-4">
+                        <p className="text-slate-500 font-bold uppercase tracking-widest text-[10px] md:text-xs mt-3 md:mt-4">
                             {activeTab === "products" ? "Update Products" : "Customer Support"}
                         </p>
                     </div>
                     
                     {/* Tab Navigation */}
-                    <div className="flex bg-white/5 p-1.5 rounded-[2rem] border border-white/10 self-start shadow-2xl backdrop-blur-md">
+                    <div className="flex flex-col sm:flex-row bg-white/5 p-1.5 rounded-2xl md:rounded-[2rem] border border-white/10 self-center md:self-start shadow-2xl backdrop-blur-md w-full sm:w-auto">
                         <button 
                             onClick={() => setActiveTab("products")}
-                            className={`px-8 py-4 rounded-[1.5rem] font-black transition-all duration-500 flex items-center gap-3 cursor-pointer ${
+                            className={`flex-1 sm:flex-none px-6 md:px-8 py-3 md:py-4 rounded-xl md:rounded-[1.5rem] font-black transition-all duration-500 flex items-center justify-center md:justify-start gap-3 cursor-pointer ${
                                 activeTab === "products" 
                                 ? "bg-orange-600 text-white shadow-[0_0_25px_rgba(249,115,22,0.4)]" 
                                 : "text-slate-500 hover:text-white"
                             }`}
                         >
-                            📦 <span className="text-xs uppercase tracking-widest">Products</span>
-                            <span className={`text-[10px] px-2 py-0.5 rounded-lg font-black ${activeTab === "products" ? "bg-black/20" : "bg-white/10"}`}>{products.length}</span>
+                            📦 <span className="text-[10px] md:text-xs uppercase tracking-widest">Products</span>
+                            <span className={`text-[9px] md:text-[10px] px-2 py-0.5 rounded-lg font-black ${activeTab === "products" ? "bg-black/20" : "bg-white/10"}`}>{products.length}</span>
                         </button>
                         <button 
                             onClick={() => setActiveTab("messages")}
-                            className={`px-8 py-4 rounded-[1.5rem] font-black transition-all duration-500 flex items-center gap-3 cursor-pointer ${
+                            className={`flex-1 sm:flex-none px-6 md:px-8 py-3 md:py-4 rounded-xl md:rounded-[1.5rem] font-black transition-all duration-500 flex items-center justify-center md:justify-start gap-3 cursor-pointer ${
                                 activeTab === "messages" 
                                 ? "bg-orange-600 text-white shadow-[0_0_25px_rgba(249,115,22,0.4)]" 
                                 : "text-slate-500 hover:text-white"
                             }`}
                         >
-                            📩 <span className="text-xs uppercase tracking-widest">Messages</span>
+                            📩 <span className="text-[10px] md:text-xs uppercase tracking-widest">Messages</span>
                             {messages.length > 0 && (
-                                <span className="bg-red-500 text-white text-[10px] px-2 py-0.5 rounded-lg font-black animate-pulse">{messages.length}</span>
+                                <span className="bg-red-500 text-white text-[9px] md:text-[10px] px-2 py-0.5 rounded-lg font-black animate-pulse">{messages.length}</span>
                             )}
                         </button>
                     </div>
@@ -212,26 +213,26 @@ const Admin = () => {
                     <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 animate-in fade-in slide-in-from-bottom-10 duration-700">
                         {/* Add/Edit Form */}
                         <div className="lg:col-span-2">
-                            <div className="bg-white/5 rounded-[3rem] shadow-sm border border-white/5 overflow-hidden sticky top-32 group hover:shadow-2xl hover:shadow-orange-600/5 transition-all duration-700">
-                                <div className="bg-white/5 px-10 py-8 border-b border-white/5">
+                            <div className="bg-white/5 rounded-[1.5rem] md:rounded-[3rem] shadow-sm border border-white/5 overflow-hidden lg:sticky lg:top-32 group hover:shadow-2xl hover:shadow-orange-600/5 transition-all duration-700">
+                                <div className="bg-white/5 px-6 md:px-10 py-6 md:py-8 border-b border-white/5">
                                     <h2 className="text-white font-black text-[10px] uppercase tracking-[0.4em] flex items-center gap-4">
                                         <span className="w-2 h-2 bg-orange-600 rounded-full animate-pulse"></span>
                                         {editProduct ? "Edit Product" : "Add New Product"}
                                     </h2>
                                 </div>
-                                <div className="p-10">
+                                <div className="p-6 md:p-10">
                                     {success && activeTab === "products" && (
                                         <div className="bg-orange-600/10 border border-orange-600/20 text-orange-500 px-6 py-4 rounded-2xl mb-8 text-[10px] font-black uppercase tracking-widest animate-bounce">
                                             {success}
                                         </div>
                                     )}
-                                    <form onSubmit={handleSubmit} className="space-y-8">
+                                    <form onSubmit={handleSubmit} className="space-y-6 md:space-y-8">
                                         <div className="space-y-3">
                                             <label className="text-slate-500 text-[10px] font-black uppercase tracking-widest ml-1">Product Name *</label>
                                             <input type="text" name="title" value={formData.title} onChange={handleChange} required placeholder="Product name..."
                                                 className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl text-white placeholder-slate-700 focus:outline-none focus:border-orange-600 focus:bg-white/10 transition-all font-bold text-sm" />
                                         </div>
-                                        <div className="grid grid-cols-2 gap-6">
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                             <div className="space-y-3">
                                                 <label className="text-slate-500 text-[10px] font-black uppercase tracking-widest ml-1">Category *</label>
                                                 <select 
@@ -269,7 +270,7 @@ const Admin = () => {
                                             <textarea name="description" value={formData.description} onChange={handleChange} required rows={3} placeholder="Product description..."
                                                 className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl text-white placeholder-slate-700 focus:outline-none focus:border-orange-600 focus:bg-white/10 transition-all resize-none font-bold text-sm" />
                                         </div>
-                                        <div className="grid grid-cols-2 gap-6">
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                             <div className="space-y-3">
                                                 <label className="text-slate-500 text-[10px] font-black uppercase tracking-widest ml-1">Price ($) *</label>
                                                 <input type="number" name="price" value={formData.price} onChange={handleChange} required min="0" placeholder="0.00"
@@ -291,15 +292,15 @@ const Admin = () => {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="flex gap-4 pt-4">
+                                        <div className="flex flex-col sm:flex-row gap-4 pt-4">
                                             <button type="submit" disabled={submitting}
-                                                className="flex-1 py-6 bg-orange-600 hover:bg-white hover:text-orange-600 text-white font-black rounded-full transition-all duration-500 shadow-[0_0_30px_rgba(249,115,22,0.4)] disabled:opacity-50 text-[10px] uppercase tracking-[0.3em] cursor-pointer">
+                                                className="flex-1 py-5 md:py-6 bg-orange-600 hover:bg-white hover:text-orange-600 text-white font-black rounded-full transition-all duration-500 shadow-[0_0_30px_rgba(249,115,22,0.4)] disabled:opacity-50 text-[10px] uppercase tracking-[0.3em] cursor-pointer">
                                                 {submitting ? "Saving..." : editProduct ? "Save Changes" : "Save Product"}
                                             </button>
                                             {editProduct && (
                                                 <button type="button"
                                                     onClick={() => { setEditProduct(null); setFormData({ title: "", description: "", price: "", category: "", subCategory: "", discount: "" }); }}
-                                                    className="px-8 py-6 border border-white/10 text-slate-500 hover:text-white hover:bg-white/5 rounded-full transition-all text-[10px] uppercase tracking-widest cursor-pointer">
+                                                    className="w-full sm:w-auto px-8 py-5 md:py-6 border border-white/10 text-slate-500 hover:text-white hover:bg-white/5 rounded-full transition-all text-[10px] uppercase tracking-widest cursor-pointer">
                                                     Cancel
                                                 </button>
                                             )}
@@ -326,34 +327,34 @@ const Admin = () => {
                                     <p className="text-slate-500 font-black uppercase tracking-[0.3em] text-xs">No Products Found</p>
                                 </div>
                             ) : (
-                                <div className="space-y-6 max-h-[1000px] overflow-y-auto pr-4 custom-scrollbar">
+                                 <div className="space-y-6 max-h-[1000px] overflow-y-auto pr-2 md:pr-4 custom-scrollbar">
                                     {products.map((product) => (
                                         <div key={product._id}
-                                            className="bg-white/5 rounded-[2.5rem] border border-white/5 p-6 flex gap-8 hover:bg-white/[0.07] hover:border-orange-600/30 transition-all duration-500 group relative">
+                                            className="bg-white/5 rounded-[1.5rem] md:rounded-[2.5rem] border border-white/5 p-5 md:p-6 flex flex-col sm:flex-row gap-6 md:gap-8 hover:bg-white/[0.07] hover:border-orange-600/30 transition-all duration-500 group relative">
                                             <div className="absolute top-0 right-0 w-32 h-32 bg-white/[0.02] -rotate-45 translate-x-12 -translate-y-12 rounded-full group-hover:bg-orange-600/5 transition-colors duration-1000"></div>
-                                            <div className="w-24 h-24 rounded-2xl overflow-hidden bg-white flex-shrink-0 border border-white/10 p-4 transition-transform group-hover:scale-105 duration-700">
+                                            <div className="w-full sm:w-24 h-48 sm:h-24 rounded-2xl overflow-hidden bg-white flex-shrink-0 border border-white/10 p-4 transition-transform group-hover:scale-105 duration-700">
                                                 <img src={product.image} alt={product.title} className="w-full h-full object-contain" />
                                             </div>
-                                            <div className="flex-1 min-w-0 flex flex-col justify-center">
-                                                <div className="flex items-center gap-3 mb-2">
-                                                    <span className="text-[9px] font-black bg-orange-600 text-white px-2.5 py-1 rounded-md uppercase tracking-widest shadow-sm">{product.category}</span>
-                                                    <span className="text-[9px] font-black text-slate-500 uppercase tracking-widest">{product.subCategory}</span>
+                                            <div className="flex-1 min-w-0 flex flex-col justify-center relative z-10">
+                                                <div className="flex items-center flex-wrap gap-2 md:gap-3 mb-2">
+                                                    <span className="text-[8px] md:text-[9px] font-black bg-orange-600 text-white px-2 py-0.5 md:px-2.5 md:py-1 rounded-md uppercase tracking-widest shadow-sm">{product.category}</span>
+                                                    <span className="text-[8px] md:text-[9px] font-black text-slate-500 uppercase tracking-widest">{product.subCategory}</span>
                                                 </div>
-                                                <h3 className="font-bold text-white text-xl truncate tracking-tight uppercase group-hover:text-orange-600 transition-colors uppercase italic">{product.title}</h3>
-                                                <div className="flex items-center gap-4 mt-3">
-                                                    <span className="font-black text-white text-2xl tracking-tighter">${product.price.toFixed(2)}</span>
+                                                <h3 className="font-bold text-white text-lg md:text-xl truncate tracking-tight uppercase group-hover:text-orange-600 transition-colors uppercase italic">{product.title}</h3>
+                                                <div className="flex items-center gap-4 mt-2 md:mt-3">
+                                                    <span className="font-black text-white text-xl md:text-2xl tracking-tighter">${product.price.toFixed(2)}</span>
                                                     {product.discount && (
-                                                        <span className="text-[9px] bg-red-600 text-white font-black px-2 py-1 rounded-md uppercase tracking-widest shadow-[0_0_15px_rgba(220,38,38,0.3)]">-{product.discount}% OFF</span>
+                                                        <span className="text-[8px] md:text-[9px] bg-red-600 text-white font-black px-2 py-0.5 md:py-1 rounded-md uppercase tracking-widest shadow-[0_0_15px_rgba(220,38,38,0.3)]">-{product.discount}% OFF</span>
                                                     )}
                                                 </div>
                                             </div>
-                                            <div className="flex flex-col gap-3 justify-center relative z-10 w-24">
+                                            <div className="flex flex-row sm:flex-col gap-3 justify-center relative z-10 w-full sm:w-24">
                                                 <button onClick={() => handleEdit(product)}
-                                                    className="w-full py-2.5 rounded-xl bg-white/5 hover:bg-orange-600 text-slate-500 hover:text-white border border-white/10 flex items-center justify-center text-[10px] font-black uppercase tracking-widest transition-all duration-300 cursor-pointer active:scale-90">
+                                                    className="flex-1 sm:w-full py-2.5 md:py-3 rounded-xl bg-white/5 hover:bg-orange-600 text-slate-500 hover:text-white border border-white/10 flex items-center justify-center text-[9px] md:text-[10px] font-black uppercase tracking-widest transition-all duration-300 cursor-pointer active:scale-90">
                                                     Edit
                                                 </button>
                                                 <button onClick={() => handleDelete(product)}
-                                                    className="w-full py-2.5 rounded-xl bg-white/5 hover:bg-red-600 text-slate-500 hover:text-white border border-white/10 flex items-center justify-center text-[10px] font-black uppercase tracking-widest transition-all duration-300 cursor-pointer active:scale-90">
+                                                    className="flex-1 sm:w-full py-2.5 md:py-3 rounded-xl bg-white/5 hover:bg-red-600 text-slate-500 hover:text-white border border-white/10 flex items-center justify-center text-[9px] md:text-[10px] font-black uppercase tracking-widest transition-all duration-300 cursor-pointer active:scale-90">
                                                     Delete
                                                 </button>
                                             </div>
@@ -365,13 +366,13 @@ const Admin = () => {
                     </div>
                 ) : (
                      <div className="animate-in slide-in-from-bottom-10 duration-700">
-                         <div className="flex items-center justify-between mb-12">
-                             <div>
-                                 <h2 className="font-black text-4xl text-white tracking-tighter uppercase italic">Customer <span className="text-slate-500 not-italic">Support</span></h2>
-                                 <p className="text-slate-500 font-bold uppercase tracking-[0.3em] text-[10px] mt-2">Manage customer inquiries</p>
+                         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
+                             <div className="text-center md:text-left">
+                                 <h2 className="font-black text-3xl md:text-4xl text-white tracking-tighter uppercase italic">Customer <span className="text-slate-500 not-italic">Support</span></h2>
+                                 <p className="text-slate-500 font-bold uppercase tracking-[0.3em] text-[9px] md:text-[10px] mt-2">Manage customer inquiries</p>
                              </div>
                             {messages.length > 0 && (
-                                <span className="bg-orange-600 text-white px-6 py-2 rounded-full text-[10px] font-black uppercase tracking-[0.2em] shadow-[0_0_20px_rgba(249,115,22,0.3)]">
+                                <span className="self-center md:self-auto bg-orange-600 text-white px-6 py-2 rounded-full text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em] shadow-[0_0_20px_rgba(249,115,22,0.3)]">
                                     {messages.length} Active Messages
                                 </span>
                             )}
@@ -391,17 +392,17 @@ const Admin = () => {
                             </div>
                         ) : (
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
-                                {messages.map((m) => (
-                                    <div key={m._id} className="bg-white/5 rounded-[3rem] border border-white/5 p-10 shadow-sm hover:shadow-2xl hover:shadow-orange-600/5 transition-all duration-700 group relative overflow-hidden">
+                                 {messages.map((m) => (
+                                    <div key={m._id} className="bg-white/5 rounded-[2rem] md:rounded-[3rem] border border-white/5 p-6 md:p-10 shadow-sm hover:shadow-2xl hover:shadow-orange-600/5 transition-all duration-700 group relative overflow-hidden">
                                         <div className="absolute top-0 left-0 w-2 h-full bg-orange-600 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                                         <div className="flex justify-between items-start mb-8">
-                                            <div className="flex items-center gap-6">
-                                                <div className="w-16 h-16 bg-white/5 border border-white/10 text-orange-600 rounded-2xl flex items-center justify-center font-black text-2xl shadow-sm group-hover:bg-orange-600 group-hover:text-white transition-all duration-500">
+                                            <div className="flex items-center gap-4 md:gap-6">
+                                                <div className="w-12 h-12 md:w-16 md:h-16 bg-white/5 border border-white/10 text-orange-600 rounded-xl md:rounded-2xl flex items-center justify-center font-black text-xl md:text-2xl shadow-sm group-hover:bg-orange-600 group-hover:text-white transition-all duration-500">
                                                     {m.name.charAt(0).toUpperCase()}
                                                 </div>
                                                 <div>
-                                                    <h3 className="font-black text-white text-xl tracking-tight uppercase italic">{m.name}</h3>
-                                                    <p className="text-orange-600 text-[10px] font-bold uppercase tracking-widest mt-1">{m.email}</p>
+                                                    <h3 className="font-black text-white text-lg md:text-xl tracking-tight uppercase italic">{m.name}</h3>
+                                                    <p className="text-orange-600 text-[8px] md:text-[10px] font-bold uppercase tracking-widest mt-1">{m.email}</p>
                                                 </div>
                                             </div>
                                             <button 
@@ -412,16 +413,16 @@ const Admin = () => {
                                             </button>
                                         </div>
                                         
-                                        <div className="space-y-6 mb-10 max-h-[400px] overflow-y-auto pr-4 custom-scrollbar">
+                                        <div className="space-y-6 mb-10 max-h-[400px] overflow-y-auto pr-2 md:pr-4 custom-scrollbar">
                                             {m.conversation.map((chat, idx) => (
                                                 <div key={idx} className={`flex ${chat.sender === "admin" ? "justify-end" : "justify-start"}`}>
-                                                    <div className={`max-w-[85%] p-6 rounded-[2rem] text-sm shadow-xl ${
+                                                    <div className={`max-w-[85%] p-5 md:p-6 rounded-2xl md:rounded-[2rem] text-xs md:text-sm shadow-xl ${
                                                         chat.sender === "admin" 
                                                         ? "bg-orange-600 text-white rounded-tr-none shadow-orange-600/20" 
                                                         : "bg-white/5 text-slate-300 rounded-tl-none border border-white/10"
                                                     }`}>
                                                         <p className="leading-relaxed font-bold italic tracking-tight">{chat.text}</p>
-                                                        <div className={`flex items-center gap-2 mt-3 ${chat.sender === "admin" ? "text-white/60" : "text-slate-500"} text-[9px] font-black uppercase tracking-widest`}>
+                                                        <div className={`flex items-center gap-2 mt-3 ${chat.sender === "admin" ? "text-white/60" : "text-slate-500"} text-[8px] md:text-[9px] font-black uppercase tracking-widest`}>
                                                             <span>{chat.sender === "admin" ? "ADMIN" : "CUSTOMER"}</span>
                                                             <span className="w-1 h-1 rounded-full bg-current opacity-30"></span>
                                                             <span>{new Date(chat.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
@@ -437,18 +438,18 @@ const Admin = () => {
                                                 placeholder="Write your reply..."
                                                 value={replyTexts[m._id] || ""}
                                                 onChange={(e) => setReplyTexts({ ...replyTexts, [m._id]: e.target.value })}
-                                                className="w-full px-8 py-6 bg-white/5 border border-white/10 rounded-[2rem] text-sm focus:outline-none focus:border-orange-600 focus:bg-white/10 transition-all resize-none min-h-[120px] font-bold text-white placeholder-slate-700"
+                                                className="w-full px-6 md:px-8 py-5 md:py-6 bg-white/5 border border-white/10 rounded-2xl md:rounded-[2rem] text-xs md:text-sm focus:outline-none focus:border-orange-600 focus:bg-white/10 transition-all resize-none min-h-[120px] font-bold text-white placeholder-slate-700"
                                             />
                                             <button 
                                                 onClick={() => handleReplySubmit(m._id)}
                                                 disabled={!replyTexts[m._id]?.trim()}
-                                                className="w-full py-6 bg-orange-600 text-white text-[10px] font-black rounded-full hover:bg-white hover:text-orange-600 transition-all duration-500 shadow-[0_0_20px_rgba(249,115,22,0.4)] disabled:opacity-30 cursor-pointer uppercase tracking-[0.4em]"
+                                                className="w-full py-5 md:py-6 bg-orange-600 text-white text-[9px] md:text-[10px] font-black rounded-full hover:bg-white hover:text-orange-600 transition-all duration-500 shadow-[0_0_20px_rgba(249,115,22,0.4)] disabled:opacity-30 cursor-pointer uppercase tracking-[0.4em]"
                                             >
                                                 Send Reply
                                             </button>
                                         </div>
 
-                                        <p className="text-[9px] text-slate-600 font-black uppercase tracking-[0.3em] text-center mt-8 pt-8 border-t border-white/5">
+                                        <p className="text-[8px] md:text-[9px] text-slate-600 font-black uppercase tracking-[0.3em] text-center mt-8 pt-8 border-t border-white/5">
                                             Received: {new Date(m.createdAt).toLocaleDateString()} // {new Date(m.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                                         </p>
                                     </div>

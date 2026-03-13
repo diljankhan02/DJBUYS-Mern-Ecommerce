@@ -136,7 +136,7 @@ const Signup = () => {
                                 className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl text-white placeholder-slate-600 focus:outline-none focus:border-orange-600 transition-all font-medium" />
                         </div>
                         <button type="submit" disabled={loading}
-                            className="w-full py-4 bg-orange-600 hover:bg-white hover:text-orange-600 text-white font-black rounded-2xl transition-all shadow-[0_0_30px_rgba(249,115,22,0.4)] active:scale-95 disabled:opacity-50 cursor-pointer text-sm uppercase tracking-widest mt-4">
+                            className="w-full py-4 bg-orange-600 hover:bg-white hover:text-orange-600 text-white font-black rounded-2xl transition-all shadow-[0_0_30px_rgba(249,115,22,0.4)] active:scale-95 disabled:opacity-50 cursor-pointer text-[10px] md:text-sm uppercase tracking-widest mt-4">
                             {loading ? "Signing Up..." : "Sign Up"}
                         </button>
                     </form>

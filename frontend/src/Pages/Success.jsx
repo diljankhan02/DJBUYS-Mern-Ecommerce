@@ -60,16 +60,16 @@ const Success = () => {
         <div className="min-h-screen flex items-center justify-center bg-slate-50 text-slate-900 p-6 relative overflow-hidden">
             <div className="text-center relative z-10">
                 {authError ? (
-                    <div className="bg-white p-12 rounded-[3rem] shadow-xl max-w-md border border-slate-100 relative overflow-hidden group">
+                    <div className="bg-white p-6 md:p-12 rounded-2xl md:rounded-[3rem] shadow-xl max-w-md border border-slate-100 relative overflow-hidden group">
                         <div className="absolute top-0 right-0 w-24 h-24 bg-red-500/5 -rotate-45 translate-x-8 -translate-y-8"></div>
-                        <div className="w-20 h-20 bg-red-500/10 rounded-full flex items-center justify-center mx-auto mb-6 border border-red-500/20">
-                            <span className="text-4xl">⚠️</span>
+                        <div className="w-16 h-16 md:w-20 md:h-20 bg-red-500/10 rounded-full flex items-center justify-center mx-auto mb-6 border border-red-500/20">
+                            <span className="text-3xl md:text-4xl">⚠️</span>
                         </div>
-                        <h2 className="text-3xl font-black text-slate-900 mb-2 tracking-tighter uppercase">Login Error</h2>
-                        <p className="text-slate-600 mb-8 font-medium leading-relaxed">{authError}</p>
+                        <h2 className="text-2xl md:text-3xl font-black text-slate-900 mb-2 tracking-tighter uppercase">Login Error</h2>
+                        <p className="text-slate-600 mb-8 font-medium leading-relaxed text-sm md:text-base">{authError}</p>
                         <button
                             onClick={() => navigate("/signin")}
-                            className="bg-orange-600 hover:bg-slate-900 text-white px-10 py-4 rounded-2xl font-black uppercase tracking-widest transition-all shadow-xl shadow-orange-600/20 active:scale-95 cursor-pointer"
+                            className="w-full md:w-auto bg-orange-600 hover:bg-slate-900 text-white px-8 md:px-10 py-4 rounded-2xl font-black uppercase tracking-widest transition-all shadow-xl shadow-orange-600/20 active:scale-95 cursor-pointer text-sm"
                         >
                             Back to Sign In
                         </button>

@@ -93,9 +93,9 @@ const ProductDetail = () => {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
 
                         {/* Visual Panel */}
-                        <div className="relative bg-white flex items-center justify-center overflow-hidden group min-h-[500px]">
+                        <div className="relative bg-white flex items-center justify-center overflow-hidden group min-h-[350px] md:min-h-[500px]">
                             {product.discount && (
-                                <span className="absolute top-10 left-10 z-10 bg-orange-600 text-white text-[10px] font-bold px-5 py-2.5 rounded-xl shadow-xl uppercase tracking-widest">
+                                <span className="absolute top-6 md:top-10 left-6 md:left-10 z-10 bg-orange-600 text-white text-[9px] md:text-[10px] font-bold px-4 md:px-5 py-2 md:py-2.5 rounded-lg md:rounded-xl shadow-xl uppercase tracking-widest">
                                     {product.discount}% Off
                                 </span>
                             )}
@@ -104,7 +104,7 @@ const ProductDetail = () => {
                                     src={product.image}
                                     alt={product.title}
                                     onError={() => setImgError(true)}
-                                    className="w-full h-full object-cover max-h-[700px] transform group-hover:scale-105 transition-transform duration-[2.5s]"
+                                    className="w-full h-full object-cover max-h-[500px] md:max-h-[700px] transform group-hover:scale-105 transition-transform duration-[2.5s]"
                                 />
                             ) : (
                                 <div className="text-slate-300 text-7xl flex flex-col items-center gap-4">
@@ -114,8 +114,8 @@ const ProductDetail = () => {
                             )}
                         </div>
 
-                      
-                        <div className="p-10 md:p-20 flex flex-col justify-between">
+                        {/* Details Panel */}
+                        <div className="p-6 md:p-12 lg:p-20 flex flex-col justify-between">
                             <div>
                                 {/* Category Header */}
                                 <div className="flex items-center gap-4 mb-10">
@@ -133,24 +133,24 @@ const ProductDetail = () => {
                                 </div>
 
                              
-                                <h1 className="text-4xl md:text-5xl font-black text-slate-900 mb-8 leading-tight tracking-tighter uppercase">
+                                <h1 className="text-2xl md:text-5xl font-black text-slate-900 mb-6 md:mb-8 leading-tight tracking-tighter uppercase line-clamp-2">
                                     {product.title}
                                 </h1>
 
                                 {/* Price Specification */}
-                                <div className="flex flex-col gap-2 mb-12">
-                                    <div className="flex items-baseline gap-4">
-                                        <span className="text-5xl font-black text-slate-900 tracking-tighter">
+                                <div className="flex flex-col gap-2 mb-8 md:mb-12">
+                                    <div className="flex items-baseline flex-wrap gap-2 md:gap-4">
+                                        <span className="text-3xl md:text-5xl font-black text-slate-900 tracking-tighter">
                                             ${discountedPrice !== null ? discountedPrice.toFixed(2) : product.price.toFixed(2)}
                                         </span>
                                         {product.discount && (
-                                            <span className="text-xl text-slate-500 line-through font-bold">
+                                            <span className="text-lg md:text-xl text-slate-500 line-through font-bold">
                                                 ${product.price.toFixed(2)}
                                             </span>
                                         )}
                                     </div>
                                     {product.discount && (
-                                        <p className="text-[11px] font-bold text-orange-600 uppercase tracking-widest">
+                                        <p className="text-[10px] md:text-[11px] font-bold text-orange-600 uppercase tracking-widest">
                                             Special Offer • Saved ${(product.price - discountedPrice).toFixed(2)}
                                         </p>
                                     )}

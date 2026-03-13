@@ -70,23 +70,23 @@ const Home = () => {
                 <div className="max-w-7xl mx-auto w-full px-6 relative z-10 grid grid-cols-1 md:grid-cols-2">
                     <div 
                         key={currentSlide}
-                        className="flex flex-col items-start animate-in fade-in slide-in-from-bottom-8 duration-1000 ease-out py-20"
+                        className="flex flex-col items-start animate-in fade-in slide-in-from-bottom-8 duration-1000 ease-out py-16 md:py-20"
                     >
                         
-                        <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-5 py-2 text-white text-[10px] font-black uppercase tracking-[0.3em] mb-8 shadow-2xl">
-                            <span className="w-2 h-2 bg-orange-600 rounded-full animate-pulse shadow-[0_0_10px_rgba(249,115,22,0.8)]"></span>
+                        <div className="inline-flex items-center gap-2 md:gap-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4 md:px-5 py-2 text-white text-[9px] md:text-[10px] font-black uppercase tracking-[0.3em] mb-6 md:mb-8 shadow-2xl">
+                            <span className="w-1.5 md:w-2 h-1.5 md:h-2 bg-orange-600 rounded-full animate-pulse shadow-[0_0_10px_rgba(249,115,22,0.8)]"></span>
                             {slides[currentSlide].badge}
                         </div>
 
                       
-                        <h1 className="text-5xl md:text-7xl lg:text-[80px] font-black leading-[0.9] mb-8 text-white tracking-tighter max-w-2xl drop-shadow-2xl uppercase">
+                        <h1 className="text-3xl sm:text-5xl md:text-7xl lg:text-[80px] font-black leading-[1.1] md:leading-[0.9] mb-6 md:mb-8 text-white tracking-tighter max-w-2xl drop-shadow-2xl uppercase">
                             {slides[currentSlide].title.split(slides[currentSlide].highlight).map((part, i, arr) => (
                                 <span key={i}>
                                     {part}
                                     {i < arr.length - 1 && (
                                         <span className="relative inline-block text-orange-600 italic">
                                             {slides[currentSlide].highlight}
-                                            <span className="absolute -bottom-2 left-0 w-full h-1 bg-white/30 rounded-full"></span>
+                                            <span className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-white/30 rounded-full"></span>
                                         </span>
                                     )}
                                 </span>
@@ -94,19 +94,19 @@ const Home = () => {
                         </h1>
 
                        
-                        <p className="text-white/70 text-lg md:text-xl font-medium leading-relaxed mb-12 max-w-lg drop-shadow-lg">
+                        <p className="text-white/70 text-sm md:text-xl font-medium leading-relaxed mb-8 md:mb-12 max-w-lg drop-shadow-lg">
                             {slides[currentSlide].desc}
                         </p>
 
                        
-                        <div className="flex flex-wrap gap-6 mt-4">
+                        <div className="flex flex-col sm:flex-row flex-wrap gap-4 md:gap-6 mt-2 md:mt-4 w-full sm:w-auto">
                             <button onClick={() => navigate(token ? "/products" : "/signup")}
-                                className="px-12 py-6 bg-orange-600 hover:bg-white hover:text-orange-600 text-white font-black rounded-[2rem] text-sm transition-all duration-500 shadow-2xl shadow-orange-600/40 hover:shadow-white/20 transform hover:-translate-y-2 cursor-pointer uppercase tracking-[0.2em]">
+                                className="px-8 md:px-12 py-4 md:py-6 bg-orange-600 hover:bg-white hover:text-orange-600 text-white font-black rounded-full md:rounded-[2rem] text-[10px] md:text-sm transition-all duration-500 shadow-2xl shadow-orange-600/40 hover:shadow-white/20 transform hover:-translate-y-2 cursor-pointer uppercase tracking-[0.2em]">
                                 Shop Collection
                             </button>
                             {!token && (
                                 <Link to="/signin"
-                                    className="px-12 py-6 bg-white/5 backdrop-blur-lg border border-white/20 text-white hover:bg-white hover:text-slate-900 font-black rounded-[2rem] text-sm transition-all duration-500 shadow-2xl transform hover:-translate-y-2 cursor-pointer uppercase tracking-[0.2em]">
+                                    className="px-8 md:px-12 py-4 md:py-6 bg-white/5 backdrop-blur-lg border border-white/20 text-white hover:bg-white hover:text-slate-900 font-black rounded-full md:rounded-[2rem] text-[10px] md:text-sm transition-all duration-500 shadow-2xl transform hover:-translate-y-2 cursor-pointer uppercase tracking-[0.2em] text-center">
                                     Sign In
                                 </Link>
                             )}
@@ -115,15 +115,15 @@ const Home = () => {
                 </div>
 
                 {/* Carousel Navigation Dots */}
-                <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 flex gap-3">
+                <div className="absolute bottom-6 md:bottom-12 left-1/2 -translate-x-1/2 z-20 flex gap-2 md:gap-3">
                     {slides.map((_, index) => (
                         <button 
                             key={index}
                             onClick={() => setCurrentSlide(index)}
-                            className={`transition-all duration-700 rounded-full h-1.5 ${
+                            className={`transition-all duration-700 rounded-full h-1 md:h-1.5 ${
                                 index === currentSlide 
-                                    ? "w-12 bg-orange-600 shadow-[0_0_15px_rgba(249,115,22,0.8)]" 
-                                    : "w-6 bg-white/20 hover:bg-white/40"
+                                    ? "w-8 md:w-12 bg-orange-600 shadow-[0_0_15px_rgba(249,115,22,0.8)]" 
+                                    : "w-4 md:w-6 bg-white/20 hover:bg-white/40"
                             }`}
                             aria-label={`Go to slide ${index + 1}`}
                         />

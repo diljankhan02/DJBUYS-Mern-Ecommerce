@@ -57,12 +57,12 @@ const Inbox = () => {
         <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900">
             <Navbar />
             
-            <div className="bg-white text-slate-900 pt-28 pb-16 px-6 relative overflow-hidden border-b border-slate-100">
-                <div className="absolute top-0 right-0 w-96 h-96 bg-orange-600/5 blur-[120px] rounded-full"></div>
+            <div className="bg-white text-slate-900 pt-24 md:pt-28 pb-12 md:pb-16 px-6 relative overflow-hidden border-b border-slate-100">
+                <div className="absolute top-0 right-0 w-64 md:w-96 h-64 md:h-96 bg-orange-600/5 blur-[80px] md:blur-[120px] rounded-full"></div>
                 <div className="max-w-5xl mx-auto relative z-10 text-center md:text-left">
-                    <p className="text-orange-600 font-bold uppercase tracking-widest text-[10px] mb-4">Support Center</p>
+                    <p className="text-orange-600 font-bold uppercase tracking-widest text-[10px] mb-3 md:mb-4">Support Center</p>
                     <h1 className="text-4xl md:text-5xl font-black mb-2 tracking-tighter uppercase">My <span className="text-orange-600">Inbox</span></h1>
-                    <p className="text-slate-600 font-medium">Manage your private conversations with DJBuys Support</p>
+                    <p className="text-slate-600 font-medium text-sm md:text-base">Manage your private conversations with DJBuys Support</p>
                 </div>
             </div>
 
@@ -91,35 +91,35 @@ const Inbox = () => {
                     <div className="space-y-12 relative z-10">
                         {messages.map((m) => (
                             <div key={m._id} className="bg-white rounded-[2.5rem] shadow-xl border border-slate-100 overflow-hidden transition-all duration-500 hover:border-orange-600/30 group">
-                                <div className="p-8 border-b border-slate-100 flex justify-between items-center bg-slate-50/50">
+                                <div className="p-5 md:p-8 border-b border-slate-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-slate-50/50">
                                     <div className="flex items-center gap-4">
-                                        <div className="w-12 h-12 rounded-2xl bg-orange-600/10 flex items-center justify-center text-orange-600 font-black text-lg border border-orange-600/20">
+                                        <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl bg-orange-600/10 flex items-center justify-center text-orange-600 font-black text-base md:text-lg border border-orange-600/20">
                                             {m.conversation[0]?.sender === "user" ? "U" : "S"}
                                         </div>
                                         <div>
-                                            <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-0.5">Reference ID</p>
-                                            <p className="text-sm font-black text-slate-900 tracking-widest">#{m._id.slice(-8).toUpperCase()}</p>
+                                            <p className="text-[9px] md:text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-0.5">Reference ID</p>
+                                            <p className="text-xs md:text-sm font-black text-slate-900 tracking-widest">#{m._id.slice(-8).toUpperCase()}</p>
                                         </div>
                                     </div>
-                                    <div className="text-right">
-                                        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-0.5">Initialized</p>
-                                        <p className="text-xs text-slate-600 font-bold uppercase tracking-tighter">
+                                    <div className="text-left sm:text-right">
+                                        <p className="text-[9px] md:text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-0.5">Initialized</p>
+                                        <p className="text-[10px] md:text-xs text-slate-600 font-bold uppercase tracking-tighter">
                                             {new Date(m.createdAt).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })}
                                         </p>
                                     </div>
                                 </div>
 
-                                <div className="p-8">
-                                    <div className="space-y-6 mb-10 max-h-[500px] overflow-y-auto pr-4 custom-scrollbar">
+                                <div className="p-5 md:p-8">
+                                    <div className="space-y-6 mb-10 max-h-[500px] overflow-y-auto pr-2 md:pr-4 custom-scrollbar">
                                         {m.conversation.map((chat, idx) => (
                                             <div key={idx} className={`flex ${chat.sender === "user" ? "justify-end" : "justify-start"}`}>
-                                                <div className={`max-w-[80%] p-6 rounded-3xl relative ${
+                                                <div className={`max-w-[90%] sm:max-w-[80%] p-5 md:p-6 rounded-2xl md:rounded-3xl relative ${
                                                     chat.sender === "user" 
                                                     ? "bg-orange-600 text-white rounded-tr-none shadow-lg" 
                                                     : "bg-slate-50 text-slate-700 rounded-tl-none border border-slate-100 shadow-inner"
                                                 }`}>
-                                                    <p className="leading-relaxed font-medium text-sm">{chat.text}</p>
-                                                    <div className={`text-[9px] mt-3 font-bold uppercase tracking-widest ${chat.sender === "user" ? "text-orange-100" : "text-slate-400"} flex items-center gap-1 opacity-80`}>
+                                                    <p className="leading-relaxed font-medium text-xs md:text-sm">{chat.text}</p>
+                                                    <div className={`text-[8px] md:text-[9px] mt-3 font-bold uppercase tracking-widest ${chat.sender === "user" ? "text-orange-100" : "text-slate-400"} flex items-center gap-1 opacity-80`}>
                                                         <span className="w-1 h-1 rounded-full bg-current"></span>
                                                         {new Date(chat.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                                                     </div>
@@ -129,18 +129,18 @@ const Inbox = () => {
                                     </div>
 
                                     {/* Reply Box */}
-                                    <div className="pt-8 border-t border-slate-100">
-                                        <div className="relative group/reply">
+                                    <div className="pt-6 md:pt-8 border-t border-slate-100">
+                                        <div className="relative group/reply flex flex-col gap-4">
                                             <textarea 
                                                 value={replyTexts[m._id] || ""}
                                                 onChange={(e) => setReplyTexts({ ...replyTexts, [m._id]: e.target.value })}
                                                 placeholder="Write your message..."
-                                                className="w-full px-8 py-6 bg-slate-50 border-2 border-slate-100 rounded-[2.5rem] text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-orange-600/50 focus:bg-white transition-all duration-300 resize-none min-h-[140px] font-medium shadow-inner"
+                                                className="w-full px-6 md:px-8 py-5 md:py-6 bg-slate-50 border-2 border-slate-100 rounded-2xl md:rounded-[2.5rem] text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-orange-600/50 focus:bg-white transition-all duration-300 resize-none min-h-[120px] md:min-h-[140px] font-medium shadow-inner"
                                             />
                                             <button 
                                                 onClick={() => handleReply(m._id)}
                                                 disabled={sending || !replyTexts[m._id]?.trim()}
-                                                className="absolute bottom-6 right-6 bg-slate-900 text-white px-8 py-3 rounded-2xl text-[10px] font-black uppercase tracking-widest hover:bg-orange-600 transition-all duration-300 cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed shadow-lg"
+                                                className="sm:absolute sm:bottom-6 sm:right-6 w-full sm:w-auto bg-slate-900 text-white px-8 py-4 sm:py-3 rounded-xl md:rounded-2xl text-[10px] font-black uppercase tracking-widest hover:bg-orange-600 transition-all duration-300 cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed shadow-lg"
                                             >
                                                 {sending ? "Sending..." : "Send Message →"}
                                             </button>
