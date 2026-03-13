@@ -251,7 +251,7 @@ const ProductDetail = () => {
                                                 </p>
                                                 {relQty === 0 ? (
                                                     <button
-                                                        onClick={() => addToCart(rel)}
+                                                        onClick={() => navigate(`/product/${rel._id}`)}
                                                         className="text-[10px] font-black text-orange-600 hover:text-slate-900 uppercase tracking-widest transition-colors cursor-pointer"
                                                     >
                                                         Details →
