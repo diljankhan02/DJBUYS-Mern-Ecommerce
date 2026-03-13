@@ -7,12 +7,12 @@ const About = () => {
             <Navbar />
 
             {/* Hero */}
-            <section className="bg-white text-slate-900 pt-24 md:pt-32 pb-16 md:pb-24 px-6 text-center relative overflow-hidden border-b border-slate-100">
+            <section className="bg-white text-slate-900 pt-20 md:pt-28 pb-12 md:pb-16 px-6 text-center relative overflow-hidden border-b border-slate-100">
                 <div className="absolute top-0 right-0 w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-orange-600/5 blur-[100px] md:blur-[150px] rounded-full"></div>
                 <div className="relative z-10 max-w-4xl mx-auto">
                     <p className="text-orange-600 font-bold uppercase tracking-widest text-[10px] mb-3 md:mb-4">Our Story</p>
-                    <h1 className="text-4xl md:text-5xl lg:text-[60px] font-black mb-4 md:mb-6 tracking-tighter uppercase leading-[1.1]">About <span className="text-orange-600">DJBuys</span></h1>
-                    <p className="text-slate-600 text-lg md:text-2xl max-w-2xl mx-auto leading-relaxed font-medium">We're on a mission to redefine online shopping. Simple, authentic, and undeniably premium.</p>
+                    <h1 className="text-3xl md:text-5xl font-black mb-4 md:mb-6 tracking-tighter uppercase leading-[1.1]">About <span className="text-orange-600">DJBuys</span></h1>
+                    <p className="text-slate-600 text-base md:text-xl max-w-2xl mx-auto leading-relaxed font-medium">We're on a mission to redefine online shopping. Simple, authentic, and undeniably premium.</p>
                 </div>
             </section>
 

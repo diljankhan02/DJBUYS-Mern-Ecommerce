@@ -45,7 +45,7 @@ const Home = () => {
             <Navbar />
 
           
-            <section className="relative h-[600px] md:h-[85vh] min-h-[600px] flex items-center justify-center overflow-hidden bg-white">
+            <section className="relative h-[500px] md:h-[550px] flex items-center justify-center overflow-hidden bg-white">
                 
             
                 {slides.map((slide, index) => (
@@ -70,23 +70,23 @@ const Home = () => {
                 <div className="max-w-7xl mx-auto w-full px-8 md:px-12 relative z-10 grid grid-cols-1 md:grid-cols-2">
                     <div 
                         key={currentSlide}
-                        className="flex flex-col items-start animate-in fade-in slide-in-from-bottom-8 duration-1000 ease-out py-12 md:py-20"
+                        className="flex flex-col items-start animate-in fade-in slide-in-from-bottom-8 duration-1000 ease-out py-10 md:py-16"
                     >
                         
-                        <div className="inline-flex items-center gap-2 md:gap-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4 md:px-5 py-2 text-white text-[9px] md:text-[10px] font-black uppercase tracking-[0.3em] mb-6 md:mb-8 shadow-2xl">
+                        <div className="inline-flex items-center gap-2 md:gap-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4 md:px-5 py-2 text-white text-[9px] md:text-[10px] font-black uppercase tracking-[0.3em] mb-4 md:mb-6 shadow-2xl">
                             <span className="w-1.5 md:w-2 h-1.5 md:h-2 bg-orange-600 rounded-full animate-pulse shadow-[0_0_10px_rgba(249,115,22,0.8)]"></span>
                             {slides[currentSlide].badge}
                         </div>
 
                       
-                        <h1 className="text-3xl sm:text-5xl md:text-5xl lg:text-[60px] font-black leading-[1.1] md:leading-[1.1] mb-6 md:mb-8 text-white tracking-tighter max-w-3xl drop-shadow-2xl uppercase">
+                        <h1 className="text-3xl sm:text-4xl md:text-5xl font-black leading-[1.2] mb-4 md:mb-6 text-white tracking-tighter max-w-3xl drop-shadow-2xl uppercase">
                             {slides[currentSlide].title.split(slides[currentSlide].highlight).map((part, i, arr) => (
                                 <span key={i}>
                                     {part}
                                     {i < arr.length - 1 && (
                                         <span className="relative inline-block text-orange-600 italic">
                                             {slides[currentSlide].highlight}
-                                            <span className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-0.5 md:h-1 bg-white/30 rounded-full"></span>
+                                            <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-white/30 rounded-full"></span>
                                         </span>
                                     )}
                                 </span>
@@ -94,7 +94,7 @@ const Home = () => {
                         </h1>
 
                        
-                        <p className="text-white/70 text-sm md:text-base font-medium leading-relaxed mb-8 md:mb-12 max-w-lg drop-shadow-lg">
+                        <p className="text-white/70 text-sm md:text-base font-medium leading-relaxed mb-6 md:mb-10 max-w-lg drop-shadow-lg line-clamp-2 md:line-clamp-none">
                             {slides[currentSlide].desc}
                         </p>
 

@@ -79,7 +79,7 @@ const Products = () => {
             <Navbar />
 
          
-            <section className="relative h-[400px] md:h-[600px] flex items-center justify-center overflow-hidden bg-white">
+            <section className="relative h-[400px] md:h-[500px] flex items-center justify-center overflow-hidden bg-white">
                 
                 
                 {slides.map((slide, index) => (
@@ -100,20 +100,20 @@ const Products = () => {
                     </div>
                 ))}
  
-                <div className="max-w-7xl mx-auto w-full px-6 relative z-10 text-center">
-                   
-                    <div 
-                        key={currentSlide}
-                        className="animate-in fade-in slide-in-from-bottom-8 duration-1000 ease-out"
-                    >
-                        <p className="text-orange-600 font-bold uppercase tracking-[0.4em] text-[8px] md:text-[10px] mb-3 md:mb-4 shadow-black drop-shadow-md">Browse Products</p>
-                        <h1 className="text-3xl md:text-5xl lg:text-[60px] font-black mb-4 md:mb-6 tracking-tighter text-white uppercase drop-shadow-2xl leading-tight">
-                            Our <span className="text-orange-600 italic">Products</span>
-                        </h1>
-                        <p className="text-white/80 mb-8 md:mb-12 text-sm md:text-lg font-medium max-w-2xl mx-auto leading-relaxed drop-shadow-lg px-4">
-                            Discover a wide range of quality products curated for your daily needs.
-                        </p>
-                    </div>
+                    <div className="max-w-4xl mx-auto w-full px-6 relative z-10 text-center">
+                       
+                        <div 
+                            key={currentSlide}
+                            className="animate-in fade-in slide-in-from-bottom-8 duration-1000 ease-out"
+                        >
+                            <p className="text-orange-600 font-bold uppercase tracking-[0.4em] text-[8px] md:text-[10px] mb-3 md:mb-4 shadow-black drop-shadow-md">Browse Products</p>
+                            <h1 className="text-3xl md:text-5xl font-black mb-4 md:mb-6 tracking-tighter text-white uppercase drop-shadow-2xl leading-tight">
+                                Our <span className="text-orange-600 italic">Products</span>
+                            </h1>
+                            <p className="text-white/80 mb-6 md:mb-10 text-sm md:text-lg font-medium max-w-2xl mx-auto leading-relaxed drop-shadow-lg px-4">
+                                Discover a wide range of quality products curated for your daily needs.
+                            </p>
+                        </div>
 
                     
                     <div className="relative max-w-2xl mx-auto group px-4 sm:px-0">

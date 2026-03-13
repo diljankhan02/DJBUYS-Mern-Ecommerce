@@ -18,11 +18,11 @@ const Cart = () => {
             <Navbar />
 
             {/* Header Area */}
-            <div className="bg-white border-b border-slate-100 pt-24 md:pt-32 pb-10 md:pb-16 px-6 relative overflow-hidden">
+            <div className="bg-white border-b border-slate-100 pt-20 md:pt-28 pb-8 md:pb-12 px-6 relative overflow-hidden">
                 <div className="max-w-7xl mx-auto relative z-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
                     <div>
                         <p className="text-orange-600 font-bold uppercase tracking-widest text-[9px] md:text-[10px] mb-3 md:mb-4">Your Shopping Cart</p>
-                        <h1 className="text-3xl md:text-6xl font-black text-slate-900 tracking-tighter uppercase">
+                        <h1 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tighter uppercase">
                             Your <span className="text-orange-600 font-medium">Cart</span>
                         </h1>
                     </div>
